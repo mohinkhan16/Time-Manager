@@ -1,0 +1,28 @@
+ 
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 8px;
+      width: 200px;
+    }
+    button {
+      padding: 6px 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    li {
+      margin: 10px;
+    }
+ 
+.from{
+    height: 300px;
+    width: 1200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
