@@ -1,4 +1,4 @@
-let students = JSON.parse(localStorage.getItem("tasks")) || [];
+let students ;
 let editIndex = -1;
 
 function addData() {
@@ -17,7 +17,6 @@ function addData() {
     editIndex = -1;
   }
 
-  saveData();
   clearFields();
   displayData();
 }
@@ -50,9 +49,7 @@ function deleteData(index) {
   displayData();
 }
 
-function saveData() {
-  localStorage.setItem("tasks", JSON.stringify(students));
-}
+
 
 function clearFields() {
   document.getElementById("name").value = "";
