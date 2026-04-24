@@ -17,7 +17,6 @@ function addData() {
     editIndex = -1;
   }
 
-  clearFields();
   displayData();
 }
 
@@ -50,10 +49,3 @@ function deleteData(index) {
 }
 
 
-
-function clearFields() {
-  document.getElementById("name").value = "";
-  document.getElementById("description").value = "";
-}
-
-window.onload = displayData;
