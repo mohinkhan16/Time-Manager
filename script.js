@@ -1,56 +1,62 @@
+let students = JSON.parse(localStorage.getItem("tasks")) || [];
+let editIndex = -1;
 
-let students = [];
-    let editIndex = -1;
+function addData() {
+  let name = document.getElementById("name").value.trim();
+  let desc = document.getElementById("description").value.trim();
 
-    function addData() {
-      let name = document.getElementById("name").value;
-      let next=document.getElementById("discription").value
+  if (name === "" || desc === "") {
+    alert("Please enter all fields");
+    return;
+  }
 
-    //   let object={
-    //     name1:name,
-    //     next1:discription
-    //   }
+  if (editIndex === -1) {
+    students.push({ name, desc });
+  } else {
+    students[editIndex] = { name, desc };
+    editIndex = -1;
+  }
 
-      if (name,next === "") {
-        alert("Enter name");
-        return;
-      }
+  saveData();
+  clearFields();
+  displayData();
+}
 
-      if (editIndex === -1) {
-        students.push(name,next);
-      } else {
-        students[editIndex] = name,next;
-        editIndex = -1;
-      }
+function displayData() {
+  let list = document.getElementById("list");
+  list.innerHTML = "";
 
-      document.getElementById("name").value = "";
-      displayData();
-    }
+  students.forEach((item, index) => {
+    list.innerHTML += `
+      <li>
+        <span>${item.name} - ${item.desc}</span>
+        <div>
+          <button onclick="editData(${index})">Edit</button>
+          <button onclick="deleteData(${index})">Delete</button>
+        </div>
+      </li>
+    `;
+  });
+}
 
-    function displayData() {
-      let list = document.getElementById("list");
-      list.innerHTML = "";
+function editData(index) {
+  document.getElementById("name").value = students[index].name;
+  document.getElementById("description").value = students[index].desc;
+  editIndex = index;
+}
 
-      students.forEach((item, index) => {
-        list.innerHTML += `
-          <li style-none>
-            ${item}
-            <button onclick="editData(${index})">Edit</button>
-            <button onclick="deleteData(${index})">Delete</button>
-          </li>
-        `;
-      });
-    }
+function deleteData(index) {
+  students.splice(index, 1);
+  displayData();
+}
 
-    function editData(index) {
-      document.getElementById("name").value = students[index];
-      editIndex = index;
-    }
+function saveData() {
+  localStorage.setItem("tasks", JSON.stringify(students));
+}
 
-    function deleteData(index) { 
-      students.splice(index, 1);
-      displayData();
-    }
+function clearFields() {
+  document.getElementById("name").value = "";
+  document.getElementById("description").value = "";
+}
 
-
-
+window.onload = displayData;
