@@ -52,7 +52,11 @@ Task-Manager/
    * Delete task ❌
 
 ---
+📸 Screenshot
+<img width="1305" height="565" alt="Screenshot (409)" src="https://github.com/user-attachments/assets/2648dcdb-058a-42b4-8431-a5de4e58a25c" />
 
+
+---
 ## ▶️ How to Run
 
 1. Download or clone the project
