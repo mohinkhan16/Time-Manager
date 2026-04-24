@@ -2,28 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Task-Manager</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time-Management</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+
+<body class="bg-light">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  
+  <div class="card shadow p-4" style="width: 400px;">
     
-    <div class="from">
-  <h2>Task-Manager</h2>
+    <h3 class="text-center mb-4">Time Management</h3>
+    <form id="form">
 
-  <label for="task">Task:-</label>
-  <input type="text" id="name" placeholder="Enter a Task">
+      <div class="mb-3">
+        <label class="form-label">Task</label>
+        <input type="text" id="name"  class="form-control"  placeholder="Enter a Task" required>
+      </div>
 
-  <br>
-  <br>
-  <label for="Discription">Discription:-</label>
-  <input type="text" id="description" placeholder="Enter a Discription">
-<br>    
-  <button onclick="addData()">Add</button>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" id="des" class="form-control"  placeholder="Enter a Description" required>
+      </div>
 
-  <ul id="list"></ul>
+      <div class="d-grid">
+        <button type="button" onclick="addData()" class="btn btn-primary">
+          Add 
+        </button>
+      </div>
+    </form>
+    <ul id="list" class="list-group mt-4"></ul>
   </div>
- 
-<script src="script.js"></script>
+</div>
+<script src="Script.js"></script>
 </body>
 </html>
- 
